@@ -77,29 +77,6 @@ class Teacher {
     }
 }
 
-class TeacherStringFactory {
-    createFormattedTeacherString(teacher) {
-        let str = `${teacher.surname} ${teacher.name} ${teacher.patronymic}\nДолжность: ${teacher.ocupation}\nУровень образования: ${teacher.degree}\n`
-        + `Категория: ${teacher.category}\nОбразование: ${teacher.education}\nДисциплина: ${teacher.discipline}\nПримечание: ${teacher.note}`;
-
-        return str;
-    }
-
-    createHtmlTeacherString(teacher) {
-        let str = this.createFormattedTeacherString(teacher);
-        
-        let teacherProps = [];
-        str.split("\n")
-           .forEach(
-                (line) => teacherProps.push(line + "<br>")
-           );
-        
-        let teacherHtmlStr = teacherProps.join("");
-
-        return teacherHtmlStr;
-    }
-}
-
 class ITeacherStringFactory {
     create(teacher) {
         throw new NotImplementedException();
