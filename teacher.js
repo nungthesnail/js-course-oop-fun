@@ -1,5 +1,11 @@
 "use strict"
 
+class ITeacherBuilder {
+    build() {
+        throw new NotImplementedException();
+    }
+}
+
 class TeacherBuilder {
     _name;
     _surname;
@@ -40,7 +46,9 @@ class TeacherBuilder {
     }
 }
 
-class Teacher {
+class ITeacher { }
+
+class Teacher extends ITeacher {
     _name;
     _surname;
     _patronymic;
@@ -52,6 +60,8 @@ class Teacher {
     _note = "";
 
     constructor(name, surname, patronymic, ocupation, degree, category, education, discipline, note) {
+        super();
+
         this._name = name;
         this._surname = surname;
         this._patronymic = patronymic;
@@ -72,9 +82,6 @@ class Teacher {
     get education()  { return this._education; }
     get discipline() { return this._discipline; }
     get note()       { return this._note; }
-
-    toString() {
-    }
 }
 
 class ITeacherStringFactory {
